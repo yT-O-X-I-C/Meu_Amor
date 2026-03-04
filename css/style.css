@@ -40,6 +40,13 @@ input {
     text-align: center;
 }
 
+.buttons-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 button, .btn {
     background: white;
     color: #ff4f81;

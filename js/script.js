@@ -19,7 +19,7 @@ document.addEventListener("click", function () {
 // Contador de tempo juntos
 const contador = document.getElementById("contador");
 if (contador) {
-    const dataInicio = new Date("2025-06-07");
+    const dataInicio = new Date("2024-01-01");
 
     setInterval(() => {
         const hoje = new Date();

@@ -1,7 +1,7 @@
 // Senha (mude aqui para sua data)
 function verificarSenha() {
     const senha = document.getElementById("senha").value;
-    if (senha === "01012024") { 
+    if (senha === "07062026") { 
         window.location.href = "home.html";
     } else {
         alert("Data incorreta 😢");

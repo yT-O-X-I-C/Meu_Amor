@@ -132,3 +132,85 @@ heart.remove();
 });
 
 });
+
+const music = document.getElementById("bg-music");
+const btn = document.getElementById("musicToggle");
+
+/* continuar música entre páginas */
+
+if(localStorage.getItem("musicTime")){
+music.currentTime = localStorage.getItem("musicTime");
+}
+
+/* autoplay automático */
+
+window.addEventListener("load",()=>{
+
+music.play().catch(()=>{});
+
+});
+
+/* salvar tempo da música */
+
+setInterval(()=>{
+
+localStorage.setItem("musicTime",music.currentTime);
+
+},1000);
+
+/* botão ligar/desligar */
+
+btn.addEventListener("click",()=>{
+
+if(music.paused){
+
+music.play();
+btn.classList.add("playing");
+
+}else{
+
+music.pause();
+btn.classList.remove("playing");
+
+}
+
+});
+
+btn.classList.add("playing");
+
+/* NOTAS MUSICAIS ANIMADAS */
+
+function createMusicNote(){
+
+const player = document.querySelector(".music-player");
+
+const note = document.createElement("div");
+
+note.classList.add("music-note");
+
+const notes = ["🎵","🎶"];
+
+note.innerHTML = notes[Math.floor(Math.random()*notes.length)];
+
+note.style.left = Math.random()*40 + 10 + "px";
+note.style.top = "40px";
+
+player.appendChild(note);
+
+setTimeout(()=>{
+note.remove();
+},2000);
+
+}
+
+/* gerar notas quando música estiver tocando */
+
+setInterval(()=>{
+
+if(!music.paused){
+
+createMusicNote();
+
+}
+
+},900);

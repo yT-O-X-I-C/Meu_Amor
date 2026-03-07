@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", inicializarContador);
  const heartsContainer = document.querySelector(".hearts");
  
  if (heartsContainer) {
-    const emojis = ["❤️", "💕", "💖", "💘", "💝", "😘", "😍"];
+    const emojis = ["❤️", "💕", "💖", "💘", "💝", "😘", "😍","🥰,"💞","💗","💓","🌻","🌹"];
  
      setInterval(() => {
          const heart = document.createElement("div");

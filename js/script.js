@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", inicializarContador);
  const heartsContainer = document.querySelector(".hearts");
  
  if (heartsContainer) {
-    const emojis = ["❤️", "💕", "💖", "💘", "💝", "😘", "😍","🥰,"💞","💗","💓","🌻","🌹"];
+    const emojis = ["❤️", "💕", "💖", "💘", "💝", "😘", "😍","🥰","💞","💗","💓","🌻","🌹"];
  
      setInterval(() => {
          const heart = document.createElement("div");
@@ -118,3 +118,97 @@ if (imagens.length > 0 && lightbox && lightboxImg) {
          lightbox.style.display = "none";
      });
  }
+
+ const music = document.getElementById("bg-music");
+const btn = document.getElementById("musicToggle");
+
+/* recuperar tempo salvo */
+
+const savedTime = localStorage.getItem("musicTime");
+
+if(savedTime){
+music.currentTime = savedTime;
+}
+
+/* autoplay quando carregar */
+
+window.addEventListener("load", ()=>{
+
+music.play().then(()=>{
+btn.classList.add("playing");
+}).catch(()=>{});
+
+});
+
+/* salvar tempo da música */
+
+setInterval(()=>{
+
+if(!music.paused){
+
+localStorage.setItem("musicTime", music.currentTime);
+
+}
+
+},1000);
+
+/* botão play/pause */
+
+btn.addEventListener("click", ()=>{
+
+if(music.paused){
+
+music.play();
+btn.classList.add("playing");
+
+}else{
+
+music.pause();
+btn.classList.remove("playing");
+
+}
+
+});
+
+/* criar notas musicais */
+
+function createMusicNote(){
+
+const player = document.querySelector(".music-player");
+
+const note = document.createElement("div");
+
+note.classList.add("music-note");
+
+const notes = ["🎵","🎶"];
+
+note.innerHTML = notes[Math.floor(Math.random()*notes.length)];
+
+/* posição aleatória */
+
+note.style.left = Math.random()*40 + 10 + "px";
+note.style.top = "40px";
+
+player.appendChild(note);
+
+/* remover depois da animação */
+
+setTimeout(()=>{
+
+note.remove();
+
+},2000);
+
+}
+
+/* gerar notas enquanto toca */
+
+setInterval(()=>{
+
+if(!music.paused){
+
+createMusicNote();
+
+}
+
+},900);

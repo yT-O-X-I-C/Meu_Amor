@@ -415,3 +415,263 @@ h1 {
     color: #fff;
     text-shadow: 0 0 12px rgba(255, 255, 255, 0.65);
 }
+
+.music-player{
+
+
+position:fixed;
+
+
+top:20px;
+right:20px;
+
+
+z-index:999;
+
+
+}
+
+
+/* BOTÃO */
+
+
+#musicToggle{
+
+
+width:60px;
+height:60px;
+
+
+border-radius:50%;
+
+
+border:none;
+
+
+cursor:pointer;
+
+
+background:radial-gradient(circle at 30% 30%, #000000, #494949a4);
+
+
+box-shadow:
+0 8px 20px rgba(0,0,0,0.4),
+inset 0 3px 8px rgba(255,255,255,0.4);
+
+
+position:relative;
+
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+
+transition:0.3s;
+
+
+}
+
+
+/* efeito pressionar */
+
+
+#musicToggle:active{
+
+
+transform:scale(0.9);
+
+
+}
+
+
+/* icone */
+
+
+.music-icon{
+
+
+font-size:22px;
+z-index:2;
+
+
+}
+
+
+/* disco */
+
+
+.disc{
+
+
+position:absolute;
+
+
+width:100%;
+height:100%;
+
+
+border-radius:50%;
+
+
+background:conic-gradient(
+#ffffff20,
+#ffffff00,
+#ffffff20
+);
+
+
+opacity:0;
+
+
+}
+
+
+/* quando tocando */
+
+
+.playing .disc{
+
+
+opacity:1;
+
+
+animation:spin 4s linear infinite;
+
+
+}
+
+
+/* animação disco */
+
+
+@keyframes spin{
+
+
+from{
+transform:rotate(0deg);
+}
+
+
+to{
+transform:rotate(360deg);
+}
+
+
+}
+
+
+/* brilho */
+
+
+#musicToggle::after{
+
+
+content:"";
+
+
+position:absolute;
+
+
+top:5px;
+left:10px;
+
+
+width:40px;
+height:15px;
+
+
+background:rgba(255,255,255,0.4);
+
+
+border-radius:50%;
+
+
+filter:blur(4px);
+
+
+}
+
+
+/* BOTÃO PULSANDO */
+
+
+.playing{
+
+
+animation:pulse 1.2s infinite;
+
+
+}
+
+
+@keyframes pulse{
+
+
+0%{
+transform:scale(1);
+}
+
+
+50%{
+transform:scale(1.1);
+}
+
+
+100%{
+transform:scale(1);
+}
+
+
+}
+
+
+/* NOTAS MUSICAIS */
+
+
+.music-note{
+
+
+position:absolute;
+
+
+font-size:18px;
+
+
+color:white;
+
+
+pointer-events:none;
+
+
+animation:noteFloat 2s ease-out forwards;
+
+
+}
+
+
+/* animação subir */
+
+
+@keyframes noteFloat{
+
+
+0%{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+
+
+50%{
+opacity:1;
+transform:translateY(-40px) scale(1.2);
+}
+
+
+100%{
+opacity:0;
+transform:translateY(-80px) scale(1.4);
+}
+
+
+}

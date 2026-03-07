@@ -1,0 +1,449 @@
+:root {
+    --rosa-1: #ff6f91;
+    --rosa-2: #ff8fb1;
+    --rosa-3: #ffc2d6;
+    --roxo: #a855f7;
+    --texto-claro: #fff7fb;
+}
+
+body{
+margin:0;
+font-family:Arial;
+background:#000;
+color:white;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+
+min-height:100vh;
+
+        background:
+        linear-gradient(rgba(131, 92, 101, 0.507), rgba(212, 86, 116, 0.616)),
+        url("../assets/img/backfundo.jpg");
+    color: var(--texto-claro);
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 24px 16px;
+}
+
+h1 {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+p {
+    font-size: 18px;
+    margin-top: 10px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* HEADER */
+
+.videos-header{
+text-align:center;
+margin:30px 0 10px 0;
+}
+
+/* FEED */
+
+.video-feed{
+
+width:100%;
+max-width:420px;
+
+height:72vh;
+
+overflow-y:auto;
+
+scroll-snap-type:y mandatory;
+
+scroll-behavior:smooth;
+
+padding:10px;
+
+}
+
+/* esconder scrollbar */
+
+.video-feed::-webkit-scrollbar{
+display:none;
+}
+
+/* CARD VIDEO */
+
+.video-card{
+
+position:relative;
+
+height:72vh;
+
+scroll-snap-align:start;
+
+border-radius:20px;
+
+overflow:hidden;
+
+margin-bottom:20px;
+
+box-shadow:0 20px 40px rgba(0,0,0,0.5);
+
+transition:transform .3s;
+
+}
+
+.video-card:hover{
+transform:scale(1.02);
+}
+
+/* VIDEO */
+
+.video-card video{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+}
+
+/* TEXTO SOBRE VIDEO */
+
+.video-overlay{
+
+position:absolute;
+
+bottom:0;
+left:0;
+right:0;
+
+display:flex;
+justify-content:space-between;
+
+padding:20px;
+
+background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);
+
+}
+
+/* TEXTO */
+
+.video-text h2{
+margin:0;
+font-size:18px;
+}
+
+.video-text p{
+margin:4px 0 0;
+font-size:14px;
+opacity:.8;
+}
+
+/* BOTÕES */
+
+.video-buttons{
+
+display:flex;
+flex-direction:column;
+gap:14px;
+
+}
+
+.like-btn,
+.sound-btn{
+
+width:45px;
+height:45px;
+
+border-radius:50%;
+
+border:none;
+
+cursor:pointer;
+
+font-size:20px;
+
+background:rgba(0,0,0,0.5);
+color:white;
+
+transition:.3s;
+
+}
+
+.like-btn:hover{
+transform:scale(1.2);
+color:#ff4b7d;
+}
+
+.sound-btn:hover{
+transform:scale(1.15);
+}
+
+/* BARRA DE PROGRESSO */
+
+.progress{
+
+position:absolute;
+bottom:0;
+left:0;
+
+height:4px;
+width:0;
+
+background:#ff4b7d;
+
+}
+
+/* RODAPÉ */
+
+.video-actions{
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+padding:20px;
+
+}
+
+/* BOTÃO */
+
+.btn{
+
+background:#ffffff;
+padding:10px 25px;
+
+border-radius:20px;
+
+color:#ff4b7d;
+text-decoration:none;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+.btn:hover{
+transform:scale(1.1);
+}
+
+/* CORAÇÕES SUBINDO */
+
+.heart{
+
+position:absolute;
+
+font-size:24px;
+
+pointer-events:none;
+
+animation:floatUp 1.8s ease-out forwards;
+
+}
+
+@keyframes floatUp{
+
+0%{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+
+50%{
+opacity:1;
+transform:translateY(-120px) scale(1.4);
+}
+
+100%{
+opacity:0;
+transform:translateY(-220px) scale(1.8);
+}
+
+}
+.music-player{
+
+position:fixed;
+
+top:20px;
+right:20px;
+
+z-index:999;
+
+}
+
+/* BOTÃO */
+
+#musicToggle{
+
+width:60px;
+height:60px;
+
+border-radius:50%;
+
+border:none;
+
+cursor:pointer;
+
+background:radial-gradient(circle at 30% 30%, #000000, #494949a4);
+
+box-shadow:
+0 8px 20px rgba(0,0,0,0.4),
+inset 0 3px 8px rgba(255,255,255,0.4);
+
+position:relative;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+transition:0.3s;
+
+}
+
+/* efeito pressionar */
+
+#musicToggle:active{
+
+transform:scale(0.9);
+
+}
+
+/* icone */
+
+.music-icon{
+
+font-size:22px;
+z-index:2;
+
+}
+
+/* disco */
+
+.disc{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+border-radius:50%;
+
+background:conic-gradient(
+#ffffff20,
+#ffffff00,
+#ffffff20
+);
+
+opacity:0;
+
+}
+
+/* quando tocando */
+
+.playing .disc{
+
+opacity:1;
+
+animation:spin 4s linear infinite;
+
+}
+
+/* animação disco */
+
+@keyframes spin{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(360deg);
+}
+
+}
+
+/* brilho */
+
+#musicToggle::after{
+
+content:"";
+
+position:absolute;
+
+top:5px;
+left:10px;
+
+width:40px;
+height:15px;
+
+background:rgba(255,255,255,0.4);
+
+border-radius:50%;
+
+filter:blur(4px);
+
+}
+
+/* BOTÃO PULSANDO */
+
+.playing{
+
+animation:pulse 1.2s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.1);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+/* NOTAS MUSICAIS */
+
+.music-note{
+
+position:absolute;
+
+font-size:18px;
+
+color:white;
+
+pointer-events:none;
+
+animation:noteFloat 2s ease-out forwards;
+
+}
+
+/* animação subir */
+
+@keyframes noteFloat{
+
+0%{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+
+50%{
+opacity:1;
+transform:translateY(-40px) scale(1.2);
+}
+
+100%{
+opacity:0;
+transform:translateY(-80px) scale(1.4);
+}
+
+}

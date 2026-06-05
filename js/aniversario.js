@@ -275,8 +275,4 @@ if (galeria && lightbox && lightboxImg) {
     });
 }
 
-// ==========================
-// MÚSICA CONTROLE
-// ==========================
-
 

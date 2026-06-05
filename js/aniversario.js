@@ -86,7 +86,7 @@ if (hoje < dataLiberacao) {
 }
 }
 
-//verificarBloqueio()
+verificarBloqueio()
 
 
 // ==========================

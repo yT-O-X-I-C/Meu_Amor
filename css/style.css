@@ -29,7 +29,14 @@
     flex-direction: column;
     padding: 24px 16px;
 }
-     
+
+#contagem-aniversario{
+    margin-top:15px;
+    font-size:1.1rem;
+    color:#fff;
+    text-align:center;
+}
+
  /* Fade transition */
 .fade {
      animation: fadeIn 1.5s ease-in-out;

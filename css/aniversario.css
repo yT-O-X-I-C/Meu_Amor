@@ -1,0 +1,503 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --rosa-1:#ff6f91;
+    --rosa-2:#ff8fb1;
+    --rosa-3:#ffc2d6;
+    --rosa-4:#ffe4ec;
+    --roxo:#a855f7;
+    --texto:#fff7fb;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+   background:linear-gradient(
+    135deg,
+    var(--rosa-1),
+    var(--rosa-2),
+    var(--roxo)
+);
+    color:var(--texto);
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+
+
+/* ==========================
+   CONTAINER
+========================== */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.hero{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.hero h1{
+    font-size:3.5rem;
+    margin-bottom:15px;
+    text-shadow:
+        0 0 15px rgba(255,255,255,.3),
+        0 0 30px rgba(255,255,255,.15);
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.subtitle{
+    font-size:1.4rem;
+    margin-bottom:15px;
+    opacity:.95;
+}
+
+.frase{
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+    font-size:1.15rem;
+}
+
+
+
+/* ==========================
+   FOTO CAPA
+========================== */
+
+.foto-capa{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+}
+
+.foto-capa img{
+    width:100%;
+    max-width:700px;
+    height:450px;
+    object-fit:cover;
+    border-radius:30px;
+    border:4px solid rgba(255,255,255,.25);
+}
+
+.foto-capa{
+    position:relative;
+}
+
+.foto-capa::after{
+    content:"";
+    position:absolute;
+    inset:-10px;
+    background:radial-gradient(
+        rgba(255,255,255,.25),
+        transparent 70%
+    );
+    z-index:-1;
+    filter:blur(20px);
+}
+
+.foto-capa img:hover{
+    transform:scale(1.02);
+}
+
+/* ==========================
+   CARDS
+========================== */
+
+.card{
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:25px;
+    padding:30px;
+    margin-bottom:30px;
+    box-shadow:0 8px 30px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.card h2{
+    text-align:center;
+    margin-bottom:25px;
+    font-size:2rem;
+}
+
+/* ==========================
+   CONTADOR
+========================== */
+
+#contador-aniversario{
+    text-align:center;
+    font-size:1.4rem;
+    line-height:2;
+    font-weight:bold;
+}
+
+/* ==========================
+   CARTA
+========================== */
+
+.carta{
+    max-width:850px;
+    margin:auto;
+    line-height:2;
+    font-size:1.1rem;
+    background:rgba(255,255,255,.05);
+    padding:30px;
+    border-radius:20px;
+}
+
+.carta p{
+    margin-bottom:15px;
+}
+
+.assinatura{
+    text-align:center;
+    font-size:1.4rem;
+    margin-top:25px;
+}
+
+/* ==========================
+   ESTATÍSTICAS
+========================== */
+
+.estatisticas{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.stat{
+    text-align:center;
+    background:rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:25px;
+    transition:.3s;
+}
+
+.stat:hover{
+    transform:translateY(-5px);
+    background:rgba(255,255,255,.15);
+}
+
+.stat span{
+    font-size:2rem;
+}
+
+.stat h3{
+    font-size:2.5rem;
+    margin:10px 0;
+}
+
+/* ==========================
+   CONQUISTAS
+========================== */
+
+.conquistas{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+
+.conquista{
+    background:rgba(255,255,255,.08);
+    padding:20px;
+    border-radius:18px;
+    text-align:center;
+    transition:.3s;
+}
+
+.conquista:hover{
+    transform:translateY(-4px);
+    background:rgba(255,255,255,.15);
+}
+
+/* ==========================
+   TIMELINE
+========================== */
+
+.timeline{
+    max-width:850px;
+    margin:auto;
+}
+
+.timeline-item{
+    display:flex;
+    gap:20px;
+    align-items:center;
+    background:rgba(255,255,255,.08);
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:15px;
+    transition:.3s;
+}
+
+.timeline-item:hover{
+    transform:translateX(10px);
+}
+
+.timeline-item span{
+    font-size:2rem;
+}
+
+.destaque{
+    border:2px solid rgba(255,255,255,.35);
+    background:rgba(255,255,255,.15);
+}
+
+/* ==========================
+   GALERIA
+========================== */
+
+.galeria-aniversario{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+.galeria-aniversario img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    border-radius:15px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.galeria-aniversario img:hover{
+    transform:scale(1.05);
+}
+
+/* ==========================
+   MOTIVOS
+========================== */
+
+.motivos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+
+.motivo{
+    background:rgba(255,255,255,.08);
+    padding:20px;
+    border-radius:18px;
+    text-align:center;
+    transition:.3s;
+}
+
+.motivo:hover{
+    transform:scale(1.03);
+    background:rgba(255,255,255,.15);
+}
+
+/* ==========================
+   SURPRESA
+========================== */
+
+.surpresa-card{
+    text-align:center;
+}
+
+#abrir-surpresa{
+    border:none;
+    background:white;
+    color:var(--rosa-1);
+    padding:15px 35px;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:1rem;
+    font-weight:bold;
+    margin-top:20px;
+    transition:.3s;
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+}
+
+#abrir-surpresa:hover{
+    transform:scale(1.08);
+}
+
+.hidden{
+    display:none;
+}
+
+#surpresa{
+    margin-top:25px;
+    background:rgba(255,255,255,.08);
+    padding:25px;
+    border-radius:20px;
+}
+
+/* ==========================
+   FINAL
+========================== */
+
+.final{
+    text-align:center;
+}
+
+.final p{
+    font-size:1.2rem;
+    line-height:2;
+}
+
+.final h2{
+    margin-top:20px;
+    font-size:2.3rem;
+}
+
+/* ==========================
+   LIGHTBOX
+========================== */
+
+#lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.9);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+#lightbox img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:15px;
+}
+
+/* ==========================
+   PLAYER MÚSICA
+========================== */
+
+.music-player{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:65px;
+    height:65px;
+    border:none;
+    border-radius:50%;
+    background:white;
+    font-size:1.5rem;
+    cursor:pointer;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+    z-index:999;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+/* ==========================
+   CORAÇÕES
+========================== */
+
+.hearts{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:-1;
+}
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    animation:subir 10s linear forwards;
+}
+
+@keyframes subir{
+
+    from{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-120vh);
+        opacity:0;
+    }
+
+}
+
+/* ==========================
+   SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:rgba(255,255,255,.1);
+}
+
+::-webkit-scrollbar-thumb{
+    background:rgba(255,255,255,.3);
+    border-radius:10px;
+}
+
+/* ==========================
+   RESPONSIVO
+========================== */
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:2.3rem;
+    }
+
+    .foto-capa img{
+        height:280px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    .timeline-item{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .galeria-aniversario img{
+        height:220px;
+    }
+
+
+}

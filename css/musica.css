@@ -1,0 +1,212 @@
+/* ==========================
+   NOSSA MÚSICA
+========================== */
+
+.musica-card {
+    overflow: hidden;
+    padding: 20px; /* Garante um respiro nas bordas do card principal */
+}
+
+/* CARD SPOTIFY */
+.spotify-card {
+    background: linear-gradient(135deg, #191414, #212121);
+    border-radius: 25px;
+    padding: 30px; /* Aumentado para dar mais elegância */
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    transition: all .3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.spotify-card:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 0 30px rgba(29, 185, 84, 0.25),
+        0 15px 45px rgba(0, 0, 0, 0.4);
+}
+
+/* CAPA */
+.spotify-cover {
+    width: 160px;
+    height: 160px;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease;
+}
+
+.spotify-card:hover .spotify-cover {
+    transform: scale(1.04) rotate(-1deg);
+}
+
+/* INFORMAÇÕES */
+.spotify-info {
+    flex: 1;
+    color: white;
+    text-align: left; /* Garante alinhamento correto no desktop */
+}
+
+.spotify-label {
+    font-size: .80rem;
+    color: #b3b3b3;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.spotify-title {
+    font-size: 2.2rem; /* Reduzido levemente para evitar quebras bruscas */
+    margin: 8px 0;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.spotify-artist {
+    color: #b3b3b3;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+}
+
+.spotify-message {
+    color: #e0e0e0;
+    margin: 15px 0;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* BARRA DE PROGRESSO */
+.spotify-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2); /* Mais visível no fundo escuro */
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.spotify-progress {
+    width: 35%;
+    height: 100%;
+    background: #1DB954;
+    border-radius: 10px;
+}
+
+/* TEMPO */
+.spotify-times {
+    display: flex;
+    justify-content: space-between;
+    color: #a7a7a7;
+    font-size: .80rem;
+    margin-top: 6px;
+    font-variant-numeric: tabular-nums; /* Evita que os números mexam de lugar */
+}
+
+/* BOTÃO VERTICAL INTEGRADO */
+.spotify-btn {
+    margin-top: 20px;
+    background: #1DB954;
+    color: white;
+    border: none;
+    padding: 12px 28px; /* Ajuste ideal de proporção interna */
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);
+}
+
+.spotify-btn:hover {
+    transform: scale(1.03);
+    background: #1ed760;
+    box-shadow: 0 6px 20px rgba(29, 185, 84, 0.4);
+}
+
+/* ==========================
+   SEÇÃO DO VÍDEO
+========================== */
+
+.video-hidden {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all .6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.video-hidden.show {
+    max-height: 1200px;
+    opacity: 1;
+    margin-top: 40px; /* Mais espaço entre o player e o vídeo */
+}
+
+/* CONTAINER DO VÍDEO */
+#video-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+/* TÍTULO CENTRALIZADO */
+.video-title {
+    text-align: center; /* Centralizado perfeitamente */
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+/* VÍDEO RESPONSIVO ESTILO REELS */
+#nosso-video {
+    width: min(100%, 360px); /* Ajustado a largura máxima para smartphones */
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    border-radius: 24px; /* Bordas mais arredondadas e modernas */
+    border: 4px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(255, 105, 180, 0.1);
+}
+
+/* ==========================
+   RESPONSIVIDADE (MOBILE)
+========================== */
+@media (max-width: 768px) {
+    .spotify-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .spotify-info {
+        text-align: center;
+    }
+
+    .spotify-cover {
+        width: 180px;
+        height: 180px;
+    }
+
+    .spotify-title {
+        font-size: 1.8rem;
+    }
+    
+    .spotify-btn {
+        width: 100%; /* Botão ocupa toda a largura no celular para facilitar o clique */
+    }
+
+    #nosso-video {
+        width: 90%; /* Deixa margens nas laterais em telas muito pequenas */
+    }
+}
